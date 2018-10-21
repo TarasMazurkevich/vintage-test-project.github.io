@@ -5,11 +5,13 @@
       <h2 class="offices_title">our offices</h2>
       <ul class="city__list" @click="toggle($event)">
         <li class="city_item" v-for="key in city"
+                              :key="key.id"
                               :data-target="key.value" 
                               :class="{active: key.active}">{{ key.value }}</li>
       </ul>
       <p class="offices_msg">Global Message Services {{ officeMsg }} LLC</p>
       <ul class="place" v-for="item in place"
+                        :key="item.id"
                         :data-target="item.target"
                         :data-country="item.country"
                         :class="{active: item.active}">
@@ -20,9 +22,10 @@
       </ul>
     </div>
     <div class="map">
-      <span class="map_dot" v-for="item in place" 
-                           :data-country="item.country"
-                           :class="{active: item.active}"></span>
+      <span class="map_dot" v-for="item in place"
+                            :key="item.id"
+                            :data-country="item.country"
+                            :class="{active: item.active}"></span>
     </div>
   </section>
 
@@ -40,17 +43,17 @@ export default {
   data () {
     return {
       city: [
-        {value: 'kyiv',      active: true},
-        {value: 'new york',  active: false},
-        {value: 'guangzhou', active: false},
-        {value: 'barcelona', active: false}
+        {id: 1, value: 'kyiv',      active: true},
+        {id: 2, value: 'new york',  active: false},
+        {id: 3, value: 'guangzhou', active: false},
+        {id: 4, value: 'barcelona', active: false}
       ],
       officeMsg: 'Ukraine',
       place: [
-        {address: 'Kuiv, Stepan Bandera, 33',       index: '09098',   country: 'Ukraine',   target: 'kyiv',        active: true},
-        {address: 'New York, Centre St, 11',        index: '10007',   country: 'USA',       target: 'new york',    active: false},
-        {address: 'Guangzhou',                      index: '510000',  country: 'China',     target: 'guangzhou',   active: false},
-        {address: 'Barcelona, Plaça de Catalunya',  index: '08002',   country: 'Spain',     target: 'barcelona',   active: false}
+        {id: 1, address: 'Kuiv, Stepan Bandera, 33',       index: '09098',   country: 'Ukraine',   target: 'kyiv',        active: true},
+        {id: 2, address: 'New York, Centre St, 11',        index: '10007',   country: 'USA',       target: 'new york',    active: false},
+        {id: 3, address: 'Guangzhou',                      index: '510000',  country: 'China',     target: 'guangzhou',   active: false},
+        {id: 4, address: 'Barcelona, Plaça de Catalunya',  index: '08002',   country: 'Spain',     target: 'barcelona',   active: false}
       ]
     }
   },

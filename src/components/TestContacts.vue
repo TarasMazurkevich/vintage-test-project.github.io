@@ -16,7 +16,7 @@
           </div>
           <div class="headquarters__col">
             <ul class="address">
-              <li class="address_item" v-for="key in address">{{ key.desc }}<a :href="key.href">{{ key.value }}</a></li>
+              <li class="address_item" v-for="key in address" :key="key.id">{{ key.desc }}<a :href="key.href">{{ key.value }}</a></li>
             </ul>
           </div>
         </div>
@@ -49,9 +49,9 @@ export default {
         'Switzerland'
       ],
       address: [
-        {desc: 'email',        value: 'info@gms-worldwide.com', href: `mailto:info@gms-worldwide.com`},
-        {desc: 'send message', value: 'viber us',               href: `viber://add?number=+41415446200`},
-        {desc: 'send form',    value: 'contact us',             href: `#`},
+        {id: 1,  desc: 'email',        value: 'info@gms-worldwide.com', href: `mailto:info@gms-worldwide.com`},
+        {id: 2,  desc: 'send message', value: 'viber us',               href: `viber://add?number=+41415446200`},
+        {id: 3,  desc: 'send form',    value: 'contact us',             href: `#`},
       ],
       mainPhone: {   number: '+41 41 544 62 00', href: 'tel:+41415446200'},
       supportPhone: {number: '+41 41 544 62 06', href: 'tel:+41415446206'}
