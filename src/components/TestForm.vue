@@ -95,7 +95,7 @@ export default {
         agreement: this.form.agreement,
       })
       .then(res => {
-        console.log(res.body.data);
+        alert(res.body.data);
       });
     }
   },
